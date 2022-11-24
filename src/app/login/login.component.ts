@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +9,9 @@ import { FormBuilder } from '@angular/forms';
 export class LoginComponent  implements OnInit{
 //login form
 loginForm = this.fb.group({
-  acno:[''],
-  pswd:['']
+  //validators-Angular validator siite
+  acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+  pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]]
 })
 
 constructor(private fb:FormBuilder){
@@ -21,13 +22,18 @@ ngOnInit(): void {
 }
 login()
 {
-  let acno = this.loginForm.value.acno
-  let pswd = this.loginForm.value.pswd
-  console.log(acno);
-  console.log(pswd);
+ console.log( (this.loginForm.get('acno')?.errors));
+ 
+  
+  if (this.loginForm.valid){
+    let acno = this.loginForm.value.acno
+    let pswd = this.loginForm.value.pswd
+    //console.log(acno);
+    //console.log(pswd);
+    alert('login Sucessesfull')
+  }
+  alert('Invalid')
 
-
-  alert('login clicked')
    
 }
 

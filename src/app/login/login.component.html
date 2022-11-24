@@ -8,9 +8,17 @@
         <div class="mb-3">
         <label for="">Account Number</label>
         <input formControlName="acno" name="acno" id="acno" type="text" placeholder="Account Number" class="form-control">
-    <div class="mb-3">
+    <!-- Account Number Validation-Structural directives *ngIf -->
+        <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" class="text-danger mt-2">
+        Invalid Account Number
+    </div>
+        <div class="mb-3">
         <label for="pswd"> PassWord</label>
-        <input formControlName="pswd" name="pswd" id="pswd" type="text" placeholder="PassWord" class="form-control">
+        <input formControlName="pswd" name="pswd" id="pswd" type="password" placeholder="PassWord" class="form-control">
+    <!-- Password Validation-Structural directives *ngIf -->
+    <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched" class="text-danger mt-2">
+        Invalid PassWord
+    </div>
     </div>
      </div>
     <div>   
