@@ -1,0 +1,23 @@
+<section class="form-02-main">
+<div class="row">
+    <div class="col-6 text-center">
+        <img src="https://img.freepik.com/premium-vector/bank-building-money-bank-financing-money-exchange-financial-services-atm-giving-out-money_625536-194.jpg?w=2000" alt="" >
+    </div>
+<div class="col mt-5">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" style="margin-top:25%; width:90% ;" class="p-3 border">
+        <div class="mb-3">
+        <label for="">Account Number</label>
+        <input formControlName="acno" name="acno" id="acno" type="text" placeholder="Account Number" class="form-control">
+    <div class="mb-3">
+        <label for="pswd"> PassWord</label>
+        <input formControlName="pswd" name="pswd" id="pswd" type="text" placeholder="PassWord" class="form-control">
+    </div>
+     </div>
+    <div>   
+        <button type="submit" class="btn btn-primary">Login</button>&nbsp;
+        <span>New User ? click Here<a href="Register"></a></span>
+    </div>
+</form>
+</div>
+</div>
+</section>
